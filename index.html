@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sehat Dan Hemat</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🩺 Sehat dan Hemat</h1>
+
+    <label>Standar BMI:</label>
+    <select id="bmiStandard">
+    <option value="asia">Asia</option>
+    <option value="who">WHO</option>
+    </select>
+
+
+    <form id="healthForm">
+      <label>Usia (tahun):</label>
+      <input type="number" id="age" min="10" max="100" required />
+      
+      <label>Berat Badan (kg):</label>
+      <input type="number" id="weight" required />
+
+      <label>Tinggi Badan (cm):</label>
+      <input type="number" id="height" required />
+
+      <label>Tujuan:</label>
+      <select id="goal">
+        <option value="turun">Turunkan Berat</option>
+        <option value="naik">Naikkan Berat</option>
+        <option value="jaga">Jaga Kesehatan</option>
+      </select>
+
+      <label>Level Penyesuaian:</label>
+      <select id="level">
+        <option value="ringan">Ringan</option>
+        <option value="sedang">Sedang</option>
+        <option value="intensif">Intensif</option>
+      </select>
+
+      <button type="submit">Lihat Saran</button>
+    </form>
+
+    <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
