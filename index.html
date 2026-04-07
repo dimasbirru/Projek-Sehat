@@ -3,48 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sehat Dan Hemat</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Sehat & Hemat | Smart Health Tracker</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🩺 Sehat dan Hemat</h1>
 
-    <label>Standar BMI:</label>
-    <select id="bmiStandard">
-    <option value="asia">Asia</option>
-    <option value="who">WHO</option>
-    </select>
+  <aside>
+    <div class="logo-area">
+      <span></span> <span>S&H Dashboard</span>
+    </div>
+    <nav>
+      <ul id="sidebar-nav">
+        <li class="active" data-target="kalkulator"><span>📊</span> Kalkulator BMI</li>
+        <li data-target="riwayat"><span>🕒</span> Riwayat</li>
+        <li data-target="pengaturan"><span>⚙️</span> Pengaturan</li>
+      </ul>
+    </nav>
+  </aside>
 
-
-    <form id="healthForm">
-      <label>Usia (tahun):</label>
-      <input type="number" id="age" min="10" max="100" required />
+  <main>
+    <div class="content-wrapper">
       
-      <label>Berat Badan (kg):</label>
-      <input type="number" id="weight" required />
+      <section id="kalkulator" class="page-section active">
+        <header>
+          <h1>Analisis Kesehatan</h1>
+          <p class="text-muted">Gunakan data medis dasar untuk mendapatkan rekomendasi menu.</p>
+        </header>
 
-      <label>Tinggi Badan (cm):</label>
-      <input type="number" id="height" required />
+        <div class="card">
+          <form id="healthForm">
+            <div class="form-grid">
+              <div class="input-group full-width">
+                <label>Standar Kalkulasi BMI</label>
+                <select id="bmiStandard">
+                  <option value="asia">Asia-Pacific (Indonesia)</option>
+                  <option value="who">WHO International</option>
+                </select>
+              </div>
+              <div class="input-group"><label>Usia (Tahun)</label><input type="number" id="age" required></div>
+              <div class="input-group"><label>Berat (kg)</label><input type="number" id="weight" step="0.1" required></div>
+              <div class="input-group"><label>Tinggi (cm)</label><input type="number" id="height" step="0.1" required></div>
+              <div class="input-group">
+                <label>Tujuan</label>
+                <select id="goal">
+                  <option value="turun">Turunkan Berat</option>
+                  <option value="naik">Naikkan Berat</option>
+                  <option value="jaga">Jaga Kesehatan</option>
+                </select>
+              </div>
+              <div class="input-group full-width">
+                <label>Level Penyesuaian</label>
+                <select id="level">
+                  <option value="ringan">Ringan (Bertahap)</option>
+                  <option value="sedang">Sedang (Normal)</option>
+                  <option value="intensif">Intensif (Cepat)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-calculate full-width">Dapatkan Rekomendasi Menu</button>
+            </div>
+          </form>
+          <div id="result"></div>
+        </div>
+      </section>
 
-      <label>Tujuan:</label>
-      <select id="goal">
-        <option value="turun">Turunkan Berat</option>
-        <option value="naik">Naikkan Berat</option>
-        <option value="jaga">Jaga Kesehatan</option>
-      </select>
+      <section id="riwayat" class="page-section">
+        <header>
+          <h1>Riwayat Perhitungan</h1>
+          <p class="text-muted">Daftar perhitungan kesehatan terakhir Anda.</p>
+        </header>
+        <div class="card">
+          <p class="empty-state">Belum ada data riwayat yang tersimpan.</p>
+        </div>
+      </section>
 
-      <label>Level Penyesuaian:</label>
-      <select id="level">
-        <option value="ringan">Ringan</option>
-        <option value="sedang">Sedang</option>
-        <option value="intensif">Intensif</option>
-      </select>
+      <section id="pengaturan" class="page-section">
+        <header>
+          <h1>Pengaturan</h1>
+          <p class="text-muted">Kelola preferensi aplikasi Anda.</p>
+        </header>
+        <div class="card">
+          <div class="setting-item">
+            <span>Mode Gelap (Simulasi)</span>
+            <input type="checkbox" class="toggle">
+          </div>
+          <div class="footer-info">
+            <p>S&H Admin v1.0.0 — Created for Better Health.</p>
+          </div>
+        </div>
+      </section>
 
-      <button type="submit">Lihat Saran</button>
-    </form>
-
-    <div id="result"></div>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
